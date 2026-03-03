@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class exercicio02 {
+    static final int N = 30;
+
+    public static void main(String[] args) {
+        int rm[] = new int[N];
+        double nota1[] = new double[N];
+        double nota2[] = new double[N];
+
+        int n = entradaDados(rm, nota1, nota2);
+
+        System.out.println("\nRMs cadastrados:");
+        for (int i = 0; i < n; i++) {
+            System.out.println(rm[i]);
+        }
+    }
+
+    public static int entradaDados(int[] rm, double[] nota1, double[] nota2) {
+        Scanner le = new Scanner(System.in);
+        int n;
+        System.out.print("Informe RM (negativo para encerrar): ");
+        int rmLido = le.nextInt();
+        for (n = 0; n < N && rmLido > 0; n++) {
+            rm[n] = rmLido;
+            System.out.print("Nota 1: ");
+            nota1[n] = le.nextDouble();
+            System.out.print("Nota 2: ");
+            nota2[n] = le.nextDouble();
+            System.out.print("Informe RM (negativo para encerrar): ");
+            rmLido = le.nextInt();
+        }
+        return n;
+    }
+}
